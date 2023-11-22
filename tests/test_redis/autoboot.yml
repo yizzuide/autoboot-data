@@ -1,0 +1,10 @@
+autoboot:
+  application:
+    name: env(APPLICATION_NAME)
+    module: api
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
