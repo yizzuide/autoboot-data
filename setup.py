@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 with open('README.md', 'r', encoding='utf-8') as fp:
     long_description = fp.read()
@@ -18,13 +18,12 @@ setup(
     packages=find_packages(exclude=['tests*']),
     include_package_data=True,
     install_requires=[
-        'autoboot',
+        'autoboot>=0.4.1',
         'redis'
     ],
     tests_require=[
         'pytest>=6.2.0',
-        'pytest-cov>=2.10.0',
-        'autoboot'
+        'pytest-cov>=2.10.0'
     ],
     python_requires='>=3.8',
     classifiers=[
