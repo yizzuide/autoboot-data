@@ -1,5 +1,5 @@
 # autoboot data starter
-基于 [autoboot](https://github.com/yizzuide/autoboot) 框架的插件机制扩展，用于支持数据层接入。
+基于 [autoboot](https://github.com/yizzuide/autoboot) 框架的扩展，用于支持数据层接入。
 <p>
   <a href="https://pypi.org/project/autoboot-data">
       <img src="https://img.shields.io/pypi/v/autoboot-data?color=%2334D058&label=pypi%20package" alt="Version">
