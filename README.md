@@ -72,12 +72,3 @@ AutoBoot.logger.info(r.ping())
 
 ## License
 [MIT License](https://github.com/yizzuide/autoboot/blob/main/LICENSE.txt)
-
-## Citation
-```bibtex
-@article{yizzuide2023autobootData,
-  author    = {yizzuide},
-  title     = {autobootData: Data starter build with autoboot},
-  year      = {2023},
-}
-```
