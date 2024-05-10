@@ -1,12 +1,12 @@
 from autoboot.annotation import component
-from redis import Redis
+from redis import Redis, ConnectionPool
 from .redis_properties import RedisProperties
 
 @component("redis_connection")
 def connection() -> Redis:
   serve_mode = RedisProperties.serve_mode()
   if serve_mode == "single":
-    return Redis(host=RedisProperties.host(),
+    pool = ConnectionPool(host=RedisProperties.host(),
         port=RedisProperties.port(),
         db=RedisProperties.db(),
         username=RedisProperties.username(),
@@ -16,6 +16,7 @@ def connection() -> Redis:
         retry_on_timeout=RedisProperties.retry_on_timeout(),
         decode_responses=RedisProperties.decode_responses(),
         )
+    return Redis(connection_pool=pool)
   
   elif serve_mode == "sentinel":
     from redis.sentinel import Sentinel
