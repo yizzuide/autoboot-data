@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "autoboot",
+  "description": "A configuration validation for the autoboot.yml file.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "autoboot": {
+      "description": "autoboot application configuration root node.",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "data": {
+          "description": "autoboot data configuration root node.",
+          "type": "object",
+          "additionalProperties": true,
+          "properties": {
+            "redis": {
+              "description": "redis configuration.",
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "host": {
+                  "description": "redis host.",
+                  "type": "string",
+                  "default": "127.0.0.1"
+                },
+                "port": {
+                  "description": "redis port.",
+                  "type": "integer",
+                  "default": 6379
+                },
+                "db": {
+                  "description": "redis db.",
+                  "type": "integer",
+                  "minimum": 0,
+                  "default": 0
+                },
+                "username": {
+                  "description": "redis username.",
+                  "type": "string"
+                },
+                "password": {
+                  "description": "redis password.",
+                  "type": "string"
+                },
+                "socket_timeout": {
+                  "description": "redis socket timeout.",
+                  "type": "integer",
+                  "default": 60
+                },
+                "socket_connect_timeout": {
+                  "description": "redis socket connect timeout.",
+                  "type": "integer",
+                  "default": 30
+                },
+                "retry_on_timeout": {
+                  "description": "redis retry on timeout.",
+                  "type": "boolean",
+                  "default": false
+                },
+                "decode_responses": {
+                  "description": "redis decode responses.",
+                  "type": "boolean",
+                  "default": true
+                },
+                "serve_mode": {
+                  "description": "redis serve mode.",
+                  "type": "string",
+                  "enum": ["single", "sentinel", "cluster"],
+                  "default": "single"
+                },
+                "nodes": {
+                  "description": "redis serve nodes.",
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                },
+                "sentinel_service_name": {
+                  "description": "redis sentinel service name.",
+                  "type": "string",
+                  "default": "master"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
